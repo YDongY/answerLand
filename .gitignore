@@ -338,5 +338,5 @@ answerland/media/
 .pytest_cache/
 
 ### PyCharm
-*.idea/
-
+.idea/
+/answerland/users/migrations/*
