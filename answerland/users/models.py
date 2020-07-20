@@ -2,10 +2,10 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
-from answerland.utils.base_model import BaseMixin
+from utils.base_model import BaseModel
 
 
-class User(AbstractUser, BaseMixin):
+class User(BaseModel, AbstractUser):
     """
     自定义模型
     """

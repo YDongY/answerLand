@@ -4,13 +4,18 @@ from django.contrib import admin
 from django.urls import include, path, re_path
 from django.views import defaults as default_views
 from django.views.generic import TemplateView
+from answerland.news.views import NewsListView
 
 urlpatterns = [
                   # Django Admin, use {% url 'admin:index' %}
                   path(settings.ADMIN_URL, admin.site.urls),
+
                   # User management
+                  path("", NewsListView.as_view(), name="home"),
+
                   path("users/", include("answerland.users.urls", namespace="users")),  # 用户app
                   path("accounts/", include("allauth.urls")),
+                  path("news/", include("answerland.news.urls", namespace="news"))
                   # Your stuff: custom urls includes go here
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

@@ -3,7 +3,7 @@
 <li class="infinite-item card" news-id="{{ news.uuid_id }}">
     <div class="card-body">
         <div class="profile-picture">
-            {% thumbnail news.user.picture "x50" as im %}
+            {% thumbnail news.user.avatar "x50" as im %}
                 <img src="{{ im.url }}" class="user-image pull-left" style="border-radius: 50%;" alt="用户头像">
             {% empty %}
                 <img src="{% static 'images/user.png' %}" class="pull-left" height="50px" alt="没有头像"/>
@@ -32,11 +32,11 @@
             {% else %}
                 <i class="heart fa fa-heart-o" aria-hidden="true"></i>
             {% endif %}
-            <span class="like-count">{{ news.count_likers }}</span>
+            <span class="like-count">{{ news.like_count }}</span>
         </a>
         <a href="#" class="comment"><i class="fa fa-comment-o" aria-hidden="true"></i>
             <span class="comment-count">{{ news.comment_count }}</span>
         </a>
-        <span class="timestamp">{{ news.created_at|timesince }}之前</span>
+        <span class="timestamp">{{ news.create_time|timesince }}之前</span>
     </div>
 </li>
